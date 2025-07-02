@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart'; // Add this
 import 'package:flutter/material.dart';
-import 'package:login_ui/registrationpage.dart';
+import 'package:login_ui/home.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Required for async main
+  await Firebase.initializeApp(); // Initialize Firebase
   runApp(const MyApp());
 }
 
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RegistrationPage(),
+      home: const Home(),
     );
   }
 }
